@@ -1,0 +1,148 @@
+#infobar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 7;
+    box-sizing: border-box;
+    padding: 2px 10px 3px 40px;
+    width: 100%;
+    height: 37px;
+    border-bottom: 1px solid #AAAAAB;
+    background-image: url('chrome-extension://__MSG_@@extension_id__/icons/icon_19.png'), linear-gradient(to bottom, #FEEFAE, #FAE692);
+    background-position: 10px 50%, 0 0;
+    background-repeat: no-repeat, repeat-x;
+    font: 15px/32px 'Helvetica', 'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
+    transform: translate3d(0, -37px, 0);
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#infobar .desc {
+    margin-right: 1em;
+    vertical-align: middle;
+}
+
+#infobar button {
+    margin: 0 0 0 10px;
+    height: 28px;
+    outline: none;
+    border: 1px solid #968A59;
+    border-radius: 3px;
+    background-image: linear-gradient(to bottom, #FFFBEA, #FBEDB1);
+    vertical-align: middle;
+}
+
+#infobar button:hover {
+    border-color: #4B452C;
+}
+
+#infobar button:active {
+    border-color: #4C4733;
+    background-image: linear-gradient(to bottom, #FDF2C0, #FEF9E3);
+}
+
+#infobar .close {
+    float: right;
+    margin: 8px 0 0;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    border: none;
+    background: url('chrome-extension://__MSG_@@extension_id__/img/close.png') no-repeat 50% 50%;
+}
+
+#infobar .close span {
+    display: block;
+    height: 100%;
+    background: url('chrome-extension://__MSG_@@extension_id__/img/close_over.png') no-repeat 50% 50%;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+#infobar .close:hover span {
+    opacity: .85;
+}
+
+#infobar .close:active span {
+    opacity: 1;
+}
+
+body > * {
+    transition: .2s linear;
+}
+
+body.showInfobar pre {
+    transform: translate3d(0, 37px, 0);
+}
+
+body.showInfobar #infobar {
+    transform: none;
+}
+
+body.processing > :not(#infobar) {
+    opacity: .5;
+    pointer-events: none;
+    cursor: wait;
+}
+
+.CodeBeautifier {
+    margin: 0;
+    font-size: 13px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    white-space: pre-wrap;
+    font: inherit;
+    color: inherit;
+    table-layout: fixed;
+}
+
+td {
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.CodeMirror {
+    height: auto;
+    min-height: 100%;
+    tab-size: 4;
+    animation: CodeMirrorIn .2s;
+}
+.CodeMirror-gutter-wrapper,
+.CodeMirror-gutter-elt {
+    position: static;
+}
+.CodeMirror-gutters {
+    z-index: 1;
+}
+.CodeMirror-gutters .CodeMirror-linenumber {
+    visibility: hidden;
+}
+.CodeMirror-code {
+    position: relative;
+    z-index: 2;
+}
+
+.CodeMirror-linenumber:before {
+    content: attr(data-n);
+}
+
+@keyframes CodeMirrorIn {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 37px, 0);
+    }
+}
+
+@media
+screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min-resolution: 192dpi),
+screen and (min-resolution: 2dppx) {
+    #infobar {
+        background-image: url('chrome-extension://__MSG_@@extension_id__/icons/icon_48.png'), linear-gradient(to bottom, #FEEFAE, #FAE692);
+        background-size: 19px 19px, auto auto;
+    }
+}
